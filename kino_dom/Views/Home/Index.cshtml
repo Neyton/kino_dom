@@ -1,0 +1,46 @@
+﻿@model kino_dom.Models.ArticleModel
+<div id="content"><div class="ic">More Website Templates at TemplateMonster.com!</div>
+	<div id="slogan">
+		<div class="image png"></div>
+		<div class="inside">
+			<h2>We are breaking<span>All Limitations</span></h2>
+			<p>Lorem ipsum dolor consectetur adipisicing elit, sed do eiusmod tempor incididunt labore etolore magna aliqua enim minim veniam quis nostrud exercitation ullamco laboris.</p>
+			<div class="wrapper"><a href="#" class="link1"><span><span>Learn More</span></span></a></div>
+		</div>
+	</div>
+	<div class="box">
+		<div class="border-right">
+			<div class="border-left">
+				<div class="inner">
+					<h3>Welcome to <b>Cinema</b> <span>World</span></h3>
+					<p>Cinema World Site is a free web template created by <a rel="nofollow" href="http://www.templatemonster.com/" class="new_window">TemplateMonster.com</a> team. This website template is optimized for 1024X768 screen resolution. It is also XHTML &amp; CSS valid.</p>
+					<div class="img-box1"><img src="~/Content/images/1page-img1.jpg" alt="" />This website template can be delivered in two packages - with PSD source files included and without them. If you need PSD source files, please go to the template download page at TemplateMonster to leave the e-mail address that you want the template ZIP package to be delivered to.</div>
+					<p>This website template has several pages: <a href="index.html">Home</a>, <a href="about-us.html">About us</a>, <a href="articles.html">Articles</a> (with Article page), <a href="contact-us.html">Contact us</a> (note that contact us form – doesn’t work), <a href="sitemap.html">Site Map</a>.</p>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="content">
+		<h3>Fresh <span>Movies</span></h3>
+		<ul class="movies">
+                        @{string str = "";}
+                        @for (int i = 0; i < Model.mas_c.Length; i++ )
+                        {
+                            if (i % 3 == 2)
+                            {
+                                str = "last";
+                            }
+                            else
+                            {
+                                str = "";
+                            }
+						<li class="@str">
+							<p>@Model.mas_c[i].name</p><img style="width: 220px;" src="data:image/png;base64,@Model.mas_c[i].img" alt="" />
+							<p>@Model.mas_c[i].body</p>
+							<div class="wrapper"><a href="@Url.RouteUrl("Movie", new { id_n = Model.mas_c[i].id })" class="link2"><span><span>Read More</span></span></a></div>
+						</li>
+                        }
+						<li class="clear">&nbsp;</li>
+					</ul>
+	</div>
+</div>

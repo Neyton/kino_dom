@@ -1,0 +1,27 @@
+﻿@model kino_dom.Models.RegistrationModel
+<!DOCTYPE html>
+<style>
+</style>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>авторизация</title>
+	<link rel="stylesheet" href="~/Content/reg/css/style.css" media="screen" type="text/css" />
+	<link rel="icon" href="http://vladmaxi.net/favicon.ico" type="image/x-icon">
+	<link rel="shortcut icon" href="http://vladmaxi.net/favicon.ico" type="image/x-icon">
+</head>
+<body>
+    <div id="login">
+        <form action="" method="post">
+            <fieldset class="clearfix">
+                <p> @Html.ValidationSummary()</p>               
+                <p style="margin-top: 100px;"><span class="fontawesome-user"></span>@Html.TextBoxFor(m => m.login, new { type = "text", value="Логин", onBlur="if(this.value == '') this.value = 'Логин'", onFocus="if(this.value == 'Логин') this.value = ''"})</p> <!-- JS because of IE support; better: placeholder="Username" -->
+                <p><span class="fontawesome-lock"></span>@Html.TextBoxFor(m => m.password, new { type = "password", value="Пароль", onBlur="if(this.value == '') this.value = 'Пароль'", onFocus="if(this.value == 'Пароль') this.value = ''"})</p> <!-- JS because of IE support; better: placeholder="Password" -->
+                <p><span class="fontawesome-lock"></span>@Html.TextBoxFor(m => m.email, new { type = "text", value="Email", onBlur="if(this.value == '') this.value = 'Email'", onFocus="if(this.value == 'Email') this.value = ''"})</p> <!-- JS because of IE support; better: placeholder="Password" -->
+                <p><input type="submit" value="РЕГИСТРАЦИЯ" style="background-color:rgb(79, 153, 237);"></p>
+            </fieldset>
+        </form>
+        <p style="margin-bottom: 100px;">Есть акаунт? &nbsp;&nbsp;<a href="@Url.RouteUrl("Autor")">Войти</a><span class="fontawesome-arrow-right"></span></p>
+    </div>
+</body>
+</html>

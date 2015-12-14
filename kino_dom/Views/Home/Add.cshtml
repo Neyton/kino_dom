@@ -1,0 +1,23 @@
+﻿@model kino_dom.Models.AddModel
+<div id="content"><div class="ic">More Website Templates at TemplateMonster.com!</div>
+    <div class="content">
+	    <h3>Contact <span>Form</span></h3>
+	    <form id="contacts-form" action="" method="post" enctype="multipart/form-data" >
+		    <fieldset>
+            <p> @Html.ValidationSummary()</p>
+		    <div class="field"><label>Название</label>@Html.TextBoxFor(m => m.name, new { type = "text", value = "Имя" })</div>
+            <div class="field"><label>Жанр</label>@Html.TextBoxFor(m => m.article, new { type = "text", value = "Имя" })</div>
+		    <div class="field"><label>Описание:</label>@Html.TextAreaFor(m => m.boddy, new { cols = 1, rows = 1})</div>
+            <div class="field"><label>Трейлер:</label>@Html.TextAreaFor(m => m.video, new { cols = 1, rows = 1})</div>
+            <div class="field"><label>Картинка</label>@Html.TextBoxFor(m => m.img, new { type = "file", value = "Имя" })</div>
+		    <div class="wrapper">
+			    <a href="#" class="link2" onclick="document.getElementById('contacts-form').submit()">	
+				    <span>
+					    <span>Send Your Message</span>
+				    </span>
+			    </a>
+		    </div>
+		    </fieldset>
+	    </form>
+    </div>
+</div>

@@ -1,0 +1,40 @@
+﻿@model kino_dom.Models.CinemaModel
+<div class="line-hor"></div>
+	<div class="box">
+		<div class="border-right">
+			<div class="border-left">
+				<div class="inner">
+                    @{kino_dom.Db_reader.DB_Reader reader = new kino_dom.Db_reader.DB_Reader(); 
+                      double e = reader.R(Model.id);
+                      kino_dom.Cookie.CookieModel cook = new kino_dom.Cookie.CookieModel();
+                      }
+					<h1>@Model.name</h1><p>Рейтинг фильма   @Math.Round(e,2)</p>
+                    @if (cook.GetName()=="admin")
+                    {
+                    <a href="@Url.RouteUrl("Dell", new { id_n = Model.id})">Удалить</a><span class="fontawesome-arrow-right"></span>
+                    }
+                    <img src="data:image/png;base64,@Model.img" alt="" style ="width: 500px;margin-left: 170px"/>
+					<div class="img-box1 alt"><img src="images/4page-img.jpg" alt="" />
+                         @Html.Raw(Model.body)
+                    </div>
+				</div>
+                <div id="login">
+        <form style="margin-left: 100px;" method ="post" action ="">
+                <select id ="sel">
+	              <option onclick="document.getElementById('ida').value = 1">1</option>
+	              <option onclick="document.getElementById('ida').value = 2">2</option>
+	              <option onclick="document.getElementById('ida').value = 3">3</option>
+	              <option onclick="document.getElementById('ida').value = 4">4</option>
+	              <option onclick="document.getElementById('ida').value = 5">5</option>
+	            </select>
+                @Html.TextBoxFor(m => m.oc, new { id="ida", type="hidden", value="5"})   
+            <input type="submit" value="оценить">
+        </form>
+    </div>
+			</div>
+		</div>
+    <div style="margin: 40px">
+        @Html.Raw(Model.video)
+    </div>
+	</div>
+
